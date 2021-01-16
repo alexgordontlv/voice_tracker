@@ -18,7 +18,7 @@ export const Provider = ({ children }) => {
   console.log(transactions);
   return (
     <ExpenseTrackerContext.Provider
-      value={{ deleteTransaction, addTransaction }}
+      value={{ deleteTransaction, addTransaction, transactions }}
     >
       {children}
     </ExpenseTrackerContext.Provider>

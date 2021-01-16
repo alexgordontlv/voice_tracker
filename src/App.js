@@ -1,10 +1,9 @@
 import React from "react";
 import "./App.css";
-import Details from "./components/Details";
+import DetailsCard from "./components/Details";
 import { Grid } from "@material-ui/core";
 import useStyles from "./styles";
 import Main from "./components/Main";
-
 
 function App() {
   const classes = useStyles();
@@ -23,8 +22,8 @@ function App() {
           <Main />
         </Grid>
         <Grid item xs={12} sm={3} spacing={2}>
-          <Details title="Income" />
-          <Details title="Expense" />
+          <DetailsCard title="Income" />
+          <DetailsCard title="Expense" />
         </Grid>
       </Grid>
     </div>

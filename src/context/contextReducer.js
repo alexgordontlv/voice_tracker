@@ -1,17 +1,23 @@
-import transitions from "@material-ui/core/styles/transitions";
-
 const contextReducer = (state, action) => {
-  switch (action) {
-    case "DELETE_TRANSACTION": {
-      return state.filter((t) => t.id !== action.payload);
-    }
-    case "ADD_TRANSACTION": {
-      const transactions = [action.payload, ...state];
+  let transactions;
+
+  switch (action.type) {
+    case "DELETE_TRANSACTION":
+      transactions = state.filter(
+        (transaction) => transaction.id !== action.payload
+      );
+
+      localStorage.setItem("transactions", JSON.stringify(transactions));
+
       return transactions;
-    }
-    default: {
+    case "ADD_TRANSACTION":
+      transactions = [action.payload, ...state];
+
+      localStorage.setItem("transactions", JSON.stringify(transactions));
+
+      return transactions;
+    default:
       return state;
-    }
   }
 };
 
